@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ the_title }}</title>
+        <link rel="stylesheet" href="/static/style-firework.css" />
+        <link rel="stylesheet" href="/static/styles.css" />
+        <link rel="stylesheet" href="/static/style-countdown.css" />
+    </head>
+    {% if result==1 %}
+    <body class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    {% else %}
+    <body>
+    {% endif %}
+        {% block body %}
+
+        {% endblock %}
+    </body>
+</html>

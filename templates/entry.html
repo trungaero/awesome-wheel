@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div>
+  <div class="container">
+    <h1 class="rainbow">WELCOME TO THE AWESOME WHEEL</h1>
+  </div>
+
+  <form method='POST' action='/reveal'>
+  <table>
+      <div class="container">
+          <div class="input-group">
+              <label for="letter">Reveal by letter :</label><br>
+              <input type="text" class="form-control" name="letter"/>
+              <button class="btn" name="submit_button" value="reveal-by-letter">REVEAL</button>
+          </div>
+          <div class="input-group">
+              <label for="position">Reveal by position :</label><br>
+              <input type="text" class="form-control" name="position"/>
+              <button class="btn" name="submit_button" value="reveal-by-pos">REVEAL</button>
+          </div>
+          <div class="input-group">
+              <label for="num_random">Reveal randomly :</label><br>
+              <input type="text" class="form-control" name="num_random"/>
+              <button class="btn" name="submit_button" value="reveal-random">REVEAL</button>
+          </div>
+          <button class="btn" name="reset">reset</button>
+          <button class="btn" name="next">next</button>
+      </div>
+  </form>
+
+  <div class="container-text">
+    <p class="word-description">{{ description }}</p>
+  </div>
+
+  <div class="container">
+    {% for value, effect in box_values %}
+      <div class="box box-{{ effect }}">{{ value }}</div>
+      {% if effect==2 %}
+      <audio autoplay>
+        <source src="{{ url_for('static', filename='audio/correct.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      {% endif %}
+
+      {% if is_failed==True %}
+      <audio autoplay>
+        <source src="{{ url_for('static', filename='audio/buzz.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="container">
+    {% if result==1 %}
+      <div class="result-won">AMAZING GOOD JOB ^__^
+        <audio autoplay>
+          <source src="{{ url_for('static', filename='audio/fireworks.mp3') }}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    {% elif result==0 %}
+      <div class="result-failed">YOU LOSE T__T</div>
+    {% endif %}
+  </div>
+  <!-- SHOW FAILED ATTEMPTS -->
+  <div class="grid-container ">
+    <!-- <div>
+      <p style="color:white;font-size:20px;">Failed attempts:</p>
+      <div class="container"> 
+        {% for i in range(total_attempts) %}
+          {% if i < num_failed_attempts %}
+            <div class="box box-attempt">X</div>
+          {% else %}
+            <div class="box box-attempt"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>   -->
+    <div>
+      {% if result!=1 %}
+        <div id="app"></div>
+      {% endif %}
+      <script src="{{ url_for('static', filename='myscript.js') }}"></script>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+

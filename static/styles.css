@@ -1,0 +1,176 @@
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
+
+.grid-container {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: auto;
+  margin: 10px;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  grid-template-rows: 300px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  height: 15vh; /* set container height */
+}
+
+.containe-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  height: 10vh; /* set container height */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 40px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  height: 5; /* set container height */
+  padding: 10px;
+  font-size: 20px;
+}
+
+@keyframes color-change-correct {
+  0% {
+    background-color: Chartreuse;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: Chartreuse;
+  }
+}
+
+@keyframes anim-failed {
+  0% {
+    font-size: 40px;
+  }
+  0% {
+    color: Chartreuse;
+  }
+  100% {
+    font-size: 80px;
+  }
+  100% {
+    color: Red;
+  }
+}
+
+@keyframes anim-won {
+  0% {
+    font-size: 40px;
+  }
+  0% {
+    color: Chartreuse;
+  }
+  100% {
+    font-size: 80px;
+  }
+  100% {
+    color: yellow;
+  }
+}
+
+.box-0 {
+  background-color: grey;
+}
+
+.box-1 {
+  background-color: Chartreuse;
+}
+
+.box-2 {
+  background-color: Chartreuse;
+  animation: color-change-correct 2s;
+}
+
+.box-attempt {
+  background-color: white;
+  font-size: 40px;
+  margin: 2px;
+  color: red;
+}
+
+.result-failed {
+  animation-name: anim-failed;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.result-won {
+  animation-name: anim-won;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow: hidden;
+}
+
+label {
+  color: white;
+}
+
+.rainbow {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+  letter-spacing: 5px;
+  animation: colorRotate 2s linear 0s infinite;
+}
+
+.word-description {
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-size: 35px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.btn {
+  margin: 10px;
+  font-size: 20px;
+}
